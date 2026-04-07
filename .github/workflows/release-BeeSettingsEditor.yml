@@ -28,10 +28,7 @@ jobs:
       run: |
         dotnet publish src/BeeSettingsEditor/BeeSettingsEditor.csproj `
           -c Release `
-          -r win-x64 `
-          --self-contained false `
-          /p:PublishSingleFile=true `
-          /p:PublishDir=bin\Release\net10.0-windows\publish\win-x64\
+          /p:PublishProfile=FolderProfile
 
     - name: List publish output
       run: Get-ChildItem -Path ${{ env.PUBLISH_DIR }} -Recurse | Select-Object FullName
