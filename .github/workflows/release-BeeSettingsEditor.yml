@@ -28,6 +28,9 @@ jobs:
           -c Release `
           /p:PublishProfile=FolderProfile
 
+    - name: List publish output
+      run: Get-ChildItem -Path src\BeeSettingsEditor\bin -Recurse -File | Select-Object FullName
+
     - name: Create zip package
       run: |
         Compress-Archive `
