@@ -8,9 +8,6 @@ on:
 permissions:
   contents: write
 
-env:
-  PUBLISH_DIR: publish-output
-
 jobs:
   build:
     runs-on: windows-latest
@@ -25,25 +22,16 @@ jobs:
         dotnet-version: 10.0.x
 
     - name: Publish BeeSettingsEditor
+      working-directory: src\BeeSettingsEditor
       run: |
-        dotnet publish src\BeeSettingsEditor\BeeSettingsEditor.csproj `
+        dotnet publish BeeSettingsEditor.csproj `
           -c Release `
-          -r win-x64 `
-          --self-contained false `
-          -p:PublishSingleFile=true `
-          -p:PublishReadyToRun=false `
-          -p:DebugType=none `
-          -p:PublishDir=${{ github.workspace }}\${{ env.PUBLISH_DIR }}\
-
-    - name: Remove extra artifacts
-      run: |
-        Get-ChildItem "${{ env.PUBLISH_DIR }}" -Filter *.xml | Remove-Item
-        Get-ChildItem "${{ env.PUBLISH_DIR }}" -Filter *.pdb | Remove-Item
+          /p:PublishProfile=FolderProfile
 
     - name: Create zip package
       run: |
         Compress-Archive `
-          -Path "${{ env.PUBLISH_DIR }}\*" `
+          -Path "src\BeeSettingsEditor\bin\Release\net10.0-windows\publish\win-x64\*" `
           -DestinationPath "${{ github.ref_name }}.zip"
 
     - name: Upload to GitHub Releases
