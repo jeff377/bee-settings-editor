@@ -5,11 +5,11 @@ on:
     tags:
       - 'BeeSettingsEditor-v*'
 
-env:
-  PUBLISH_DIR: src/BeeSettingsEditor/bin/Release/net10.0-windows/publish/win-x64
-
 permissions:
   contents: write
+
+env:
+  PUBLISH_DIR: src\BeeSettingsEditor\bin\Release\net10.0-windows\publish\win-x64
 
 jobs:
   build:
@@ -26,18 +26,19 @@ jobs:
 
     - name: Publish BeeSettingsEditor
       run: |
-        dotnet publish src/BeeSettingsEditor/BeeSettingsEditor.csproj `
+        dotnet publish src\BeeSettingsEditor\BeeSettingsEditor.csproj `
           -c Release `
-          /p:PublishProfile=FolderProfile
-
-    - name: List publish output
-      run: Get-ChildItem -Path src/BeeSettingsEditor/bin -Recurse -File | Select-Object FullName
+          -r win-x64 `
+          --self-contained false `
+          -p:PublishSingleFile=true `
+          -p:PublishReadyToRun=false `
+          -o ${{ env.PUBLISH_DIR }}
 
     - name: Create zip package
       run: |
         Compress-Archive `
           -Path "${{ env.PUBLISH_DIR }}\*" `
-          -DestinationPath ${{ github.ref_name }}.zip
+          -DestinationPath "${{ github.ref_name }}.zip"
 
     - name: Upload to GitHub Releases
       uses: softprops/action-gh-release@v2
