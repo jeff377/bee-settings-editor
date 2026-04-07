@@ -12,15 +12,7 @@
 
 | 版本   | 更新日期    | 說明                             | 下載連結 |
 |--------|-------------|----------------------------------|----------|
-| v1.0.0 | 2025-07-25  | 初版釋出，支援主金鑰與加密金鑰產生 | [📥 Download v1.0.0](https://github.com/jeff377/bee-library/releases/download/BeeSettingsEditor-v1.0.0/BeeSettingsEditor-v1.0.0.zip) |
-| v1.0.1 | 2025-07-27  | 支援 `Bee.NET v3.2.1` 的 `SystemSettings` 新增功能項目  | [📥 Download v1.0.1](https://github.com/jeff377/bee-library/releases/download/BeeSettingsEditor-v1.0.1/BeeSettingsEditor-v1.0.1.zip) |
-| v1.0.2 | 2025-07-28  | BeeSettingsEditor.exe 啟動時，主金鑰不存在會自動產生，避免因缺少主金鑰而導致應用程式中斷。  | [📥 Download v1.0.2](https://github.com/jeff377/bee-library/releases/download/BeeSettingsEditor-v1.0.2/BeeSettingsEditor-v1.0.2.zip) |
-| v1.0.3 | 2025-08-01  | 支援 `Bee.NET v3.2.2` 的 `SystemSettings` 新增功能項目  | [📥 Download v1.0.3](https://github.com/jeff377/bee-library/releases/download/BeeSettingsEditor-v1.0.3/BeeSettingsEditor-v1.0.3.zip) |
-| v1.0.4 | 2025-08-17  | 支援 `DatabaseSettings` 的 Password 加密  | [📥 Download v1.0.4](https://github.com/jeff377/bee-library/releases/download/BeeSettingsEditor-v1.0.4/BeeSettingsEditor-v1.0.4.zip) |
-| v1.0.5 | 2025-08-18  | 屬性視窗描述文字改為英文  | [📥 Download v1.0.5](https://github.com/jeff377/bee-library/releases/download/BeeSettingsEditor-v1.0.5/BeeSettingsEditor-v1.0.5.zip) |
-| v1.0.6 | 2025-09-24  | 支援 `Bee.NET v3.2.8` 的 `SystemSettings` 新增功能項目  | [📥 Download v1.0.6](https://github.com/jeff377/bee-library/releases/download/BeeSettingsEditor-v1.0.6/BeeSettingsEditor-v1.0.6.zip) |
-| v1.0.7 | 2025-10-05  | 支援 `Bee.NET v3.5.1` 的 `SystemSettings` 新增功能項目  | [📥 Download v1.0.7](https://github.com/jeff377/bee-library/releases/download/BeeSettingsEditor-v1.0.7/BeeSettingsEditor-v1.0.7.zip) |
-| v1.0.8 | 2025-10-28  | 支援 `Bee.NET v3.6.1` 的 `SystemSettings` 新增功能項目  | [📥 Download v1.0.8](https://github.com/jeff377/bee-library/releases/download/BeeSettingsEditor-v1.0.7/BeeSettingsEditor-v1.0.8.zip) |
+| v1.0.8 | 2025-10-28  | 支援 `Bee.NET v3.6.1` 的 `SystemSettings` 新增功能項目  | [📥 Download v1.0.8](https://github.com/jeff377/bee-settings-editor/releases/download/BeeSettingsEditor-v1.0.8/BeeSettingsEditor-v1.0.8.zip) |
 
 ---
 
