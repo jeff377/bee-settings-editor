@@ -31,7 +31,7 @@ jobs:
           /p:PublishProfile=FolderProfile
 
     - name: List publish output
-      run: Get-ChildItem -Path ${{ env.PUBLISH_DIR }} -Recurse | Select-Object FullName
+      run: Get-ChildItem -Path src/BeeSettingsEditor/bin -Recurse -File | Select-Object FullName
 
     - name: Create zip package
       run: |
