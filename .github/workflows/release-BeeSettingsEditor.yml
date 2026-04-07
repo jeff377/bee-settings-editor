@@ -5,6 +5,9 @@ on:
     tags:
       - 'BeeSettingsEditor-v*'
 
+env:
+  PUBLISH_DIR: src/BeeSettingsEditor/bin/Release/net10.0-windows/publish/win-x64
+
 jobs:
   build:
     runs-on: windows-latest
@@ -22,13 +25,18 @@ jobs:
       run: |
         dotnet publish src/BeeSettingsEditor/BeeSettingsEditor.csproj `
           -c Release `
-          /p:PublishProfile=FolderProfile `
-          /p:RestoreLockedMode=false
+          -r win-x64 `
+          --self-contained false `
+          /p:PublishSingleFile=true `
+          /p:PublishDir=bin\Release\net10.0-windows\publish\win-x64\
+
+    - name: List publish output
+      run: Get-ChildItem -Path ${{ env.PUBLISH_DIR }} -Recurse | Select-Object FullName
 
     - name: Create zip package
       run: |
         Compress-Archive `
-          -Path src/BeeSettingsEditor/bin/Release/net10.0-windows/publish/win-x64/* `
+          -Path "${{ env.PUBLISH_DIR }}\*" `
           -DestinationPath ${{ github.ref_name }}.zip
 
     - name: Upload to GitHub Releases
