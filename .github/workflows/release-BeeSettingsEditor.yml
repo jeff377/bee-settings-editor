@@ -8,6 +8,9 @@ on:
 env:
   PUBLISH_DIR: src/BeeSettingsEditor/bin/Release/net10.0-windows/publish/win-x64
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-latest
